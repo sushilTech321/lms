@@ -12,11 +12,12 @@ LMS | Change password
                 <h4 class="card-title font-weight-bold text-secondary">Change Password</h4>
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Change password</li>
                     </ol>
                 </nav>
             </div>
+
             {{-- status msg --}}
             <div class="card-body">
                 @if (session('status'))
@@ -24,13 +25,15 @@ LMS | Change password
                         <i class="fa-regular fa-circle-check fa-xl"></i> {{ session('status') }}
                     </div>
                 @endif
-            </div>                         
+            </div>    
+
             {{-- withError msg --}}
             @if($errors->has('current_password'))
                 <div class="alert alert-danger font-weight-bold ml-3">
                     <i class="fa-solid fa-circle-exclamation fa-xl" style="color: #f0f1f5;"></i> {{ $errors->first('current_password') }}
                 </div>
             @endif
+            
             <div class="card-body">
                 <div class="card">
                     <form action="/admin_update_passwords" method="POST" class="mt-3 ml-5">

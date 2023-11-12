@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('title')
 LMS | Dashboard
 @endsection
@@ -17,12 +16,12 @@ LMS | Dashboard
                     </ol>
                 </nav>
             </div>
-            
+
             {{-- status msg --}}
             <div class="card-body">
                 @if (session('status'))
                     <div class="alert alert-success font-weight-bold" role="alert">
-                        <i class="fa-solid fa-circle-check fa-2xl"></i> {{ session('status') }}    
+                        <i class="fa-solid fa-circle-check fa-2xl"></i> {{session('status')}}    
                     </div>
                 @endif
             </div> 
@@ -56,7 +55,6 @@ LMS | Dashboard
                                 <th class="font-weight-bold">Email</th>
 
                                 <th class="font-weight-bold">Action</th>
-
                             </thead>
                             <tbody>
                                 @foreach($users as $row)
@@ -103,6 +101,6 @@ LMS | Dashboard
 <script>
     $(document).ready( function () {
         $('#mydataTable').DataTable();
-        });
+    });
 </script>
 @endsection

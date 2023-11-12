@@ -17,7 +17,6 @@ LMS | Register Employee
                         {{-- employee registration section --}}
                         <form action="{{url('/store')}}" method="post" class="mt-3 ml-5" >
                             @csrf
-                            
                             {{-- emp name --}}
                             <div class="form-group " style="width:25em">
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="" aria-describedby="" placeholder="Full Name" required>

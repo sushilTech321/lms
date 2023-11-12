@@ -16,25 +16,20 @@ LMS | Dashboard
                     <div class="d-flex justify-content-center">
                         <form action="{{url('/leavestore')}}" method="POST">
                             @csrf
-
                             {{-- leave type --}}
                             <div class="form-group " style="width:25em">
-                                {{-- <input type="text" name="leavetype" class="form-control" id="" aria-describedby="" placeholder="Leave Type"> --}}
-                                
                                 {{--leave type --}}
                                 <select id="firstDropdown" name="leave_type" onchange="updateDropdown(1)" class="custom-select form-control dropdown-toggle" required="">
                                     <option value="" selected disabled>Select Leave Type</option>
                                     <option value="Paid">Paid</option>
                                     <option value="Unpaid">Unpaid</option>
-                                </select>
-                                <br><br>
+                                </select><br><br>
 
                                 {{--leave category --}}
                                 <select id="secondDropdown" name="leave_category"  onchange="updateDropdown(2)"  class="custom-select form-control dropdown-toggle" required="">
                                     <option value="" selected disabled>Select Leave Category</option>
-                                </select>
-                                <br><br>
-
+                                </select> <br><br>
+                               
                                 {{-- leave tenure --}}
                                 <select id="thirdDropdown" name="leave_tenure"  onchange="updateDropdown(3)" class="custom-select form-control dropdown-toggle  @error('leave_tenure') is-invalid @enderror" >
                                     <option value="" disabled selected >Tenure</option>
@@ -50,8 +45,8 @@ LMS | Dashboard
 
                                 {{-- Duration --}}
                                 <input type="text" id="fourthDropdown" name="leave_duration"  class="form-control  @error('leave_duration') is-invalid @enderror" placeholder="Enter Duration">
-                                
                                 {{-- error msg --}}
+               
                                 @error('leave_duration')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -63,7 +58,6 @@ LMS | Dashboard
                             <div class="form-group" >
                                 <textarea name="description" id="" cols="40" rows="1" placeholder="Description" class="form-control"></textarea>
                             </div>
-
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-round btn-primary font-weight-normal">Add Leave</button>
                             </div>

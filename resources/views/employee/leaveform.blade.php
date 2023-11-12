@@ -38,17 +38,17 @@
                                     <div class="col-md-4" id="div1">
                                         {{-- employee name --}}
                                         <label class="d-flex justify-content-center font-weight-bold " for="emp_name">Name</label>
-                                        <input type="text" name="name_req" value="{{$employeeData->name}}" class="form-control" readonly>
+                                        <input type="text" name="name_req" value="{{$employeeData->name}}" class="form-control font-weight-bold" readonly>
                                         <br>
 
                                         {{-- employee post --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">Post</label>
-                                        <input type="text" name="post" value="{{$employeeData->post}}" class="form-control id="" aria-describedby="" readonly>
+                                        <input type="text" name="post" value="{{$employeeData->post}}" class="form-control font-weight-bold" aria-describedby="" readonly>
                                         <br>
 
                                         {{-- leave type --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">Leave Type</label>
-                                        <select id="firstDropdown" name="ltype_req" onchange="updateDropdown(1)" class="custom-select form-control dropdown-toggle" required="">
+                                        <select id="firstDropdown" name="ltype_req" onchange="updateDropdown(1)" class="custom-select form-control font-weight-normal dropdown-toggle" required="">
                                             <option value="" selected disabled>Select Leave Type</option>
                                             <option value="Paid">Paid</option>
                                         </select>
@@ -56,28 +56,28 @@
 
                                         {{-- start date section --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="startDate">Start Date</label>
-                                        <input type="date" value="" name="startdate" class="form-control" id="startDate" aria-describedby="" required>
+                                        <input type="date" value="" name="startdate" class="form-control font-weight-normal" id="startDate" aria-describedby="" required>
                                         <br>
 
                                         {{-- applied date --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">Apply Date</label> 
-                                        <input type="date" name="applied_on" class="form-control" required>
+                                        <input type="date" name="applied_on" class="form-control font-weight-normal" required>
                                     </div>
 
                                     <div class="col-md-4" id="div2"> 
                                         {{-- employee join date --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="emp_name">Join Date</label>
-                                        <input type="text" name="joindate" value="{{$employeeData->emp_joinDate}}" class="form-control id="" aria-describedby="" readonly>
+                                        <input type="text" name="joindate" value="{{$employeeData->emp_joinDate}}" class="form-control font-weight-bold" aria-describedby="" readonly>
                                         <br>
 
                                         {{-- employee email --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="emp_name">Email</label>
-                                        <input type="text" name="email" value="{{$employeeData->email}}" class="form-control id="" aria-describedby="" readonly>
+                                        <input type="text" name="email" value="{{$employeeData->email}}" class="form-control font-weight-bold" aria-describedby="" readonly>
                                         <br>
 
                                         {{-- leave category --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">Leave Category</label>
-                                        <select name="lcat_req" class="custom-select form-control dropdown-toggle" required="">
+                                        <select name="lcat_req" class="custom-select form-control font-weight-normal dropdown-toggle" required="">
                                             <option selected disabled>Select Leave Category</option>
                                             <option value="Annual">Annual</option>
                                             <option value="Sick">Sick</option>
@@ -88,40 +88,42 @@
 
                                         {{--  end date section --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="endDate">End Date</label>
-                                        <input type="date" value="" name="enddate" class="form-control" id="endDate" aria-describedby="" required>
+                                        <input type="date" value="" name="enddate" class="form-control font-weight-normal" id="endDate" aria-describedby="" required>
                                         <br>
 
                                         {{-- Users id --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">User Id</label> 
-                                        <input type="text" name="user_id"  value="{{$employeeData->id}}" class="form-control" readonly>
+                                        <input type="text" name="user_id"  value="{{$employeeData->id}}" class="form-control font-weight-bold" readonly>
                                     </div>
 
                                     <div class="col-md-4">
                                         {{-- employee marital status --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="emp_name">Marital Status</label>
-                                        <input type="text" name="maristatus" value="{{$employeeData->maristatus}}" class="form-control" id="" aria-describedby="" readonly>
+                                        <input type="text" name="maristatus" value="{{$employeeData->maristatus}}" class="form-control font-weight-bold" id="" aria-describedby="" readonly>
                                         <br>
 
                                         {{-- employee gender --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="emp_name">Gender</label>
-                                        <input type="text" name="gender" value="{{$employeeData->emp_gender}}" class="form-control id="" aria-describedby=""  readonly>
+                                        <input type="text" name="gender" value="{{$employeeData->emp_gender}}" class="form-control font-weight-bold" aria-describedby=""  readonly>
                                         <br>
                                         
                                         {{-- Attachments --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">Attachments (optional)</label>
-                                        <input type="file" class="form-control" name="attachments">
+                                        <input type="file" class="form-control font-weight-normal" name="attachments">
                                         <br>
 
                                         {{-- Leave of days--}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">Leave Days</label> 
-                                        <input type="text" name="leave_days" id="output" class="form-control" placeholder="Enter Days" required>
+                                        <input type="text" name="leave_days" id="output" class="form-control font-weight-bold" placeholder="Enter Days" required>
                                         <br>
                                     </div>
                                 </div>
-                            </div>
+                            </div><br>
                             {{-- register button --}}
                             <div class="form-group d-flex justify-content-center">
                                 <button type="submit"  class="btn btn-round btn-info font-weight-bold">Submit</button>
+                                &nbsp;
+                            <a href="{{url('/home')}}" class="btn btn-danger btn-round font-weight-bold">Cancle</a>
                             </div>
                         </form>
                     </div>

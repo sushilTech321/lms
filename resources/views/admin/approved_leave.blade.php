@@ -65,11 +65,13 @@ LMS | Dashboard
                                                     <i class="fa-solid fa-ellipsis fa-2xl" ></i>
                                                </a>
                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                   <form action="/approve_view/{{$item->id}}">
+                                                    {{-- view section --}}
+                                                    <form action="/approve_view/{{$item->id}}">
                                                        @csrf
                                                        <button type="submit" class="dropdown-item" ><i class="fa-regular fa-eye fa-lg"></i> View</button>
                                                    </form>
 
+                                                   {{-- delete section --}}
                                                    <form action="/approved_leave/{{$item->id}}" method="POST">
                                                        {{csrf_field()}}
                                                        {{method_field('DELETE')}}
@@ -95,6 +97,6 @@ LMS | Dashboard
 <script>
     $(document).ready( function () {
         $('#mydataTable').DataTable();
-        });
+    });
 </script>
 @endsection

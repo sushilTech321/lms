@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-LMS | Take Action
+LMS | Employee Edit
 @endsection
 
 @section('content')

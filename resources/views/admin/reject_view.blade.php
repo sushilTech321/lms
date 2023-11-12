@@ -43,6 +43,15 @@ LMS | Take Action
                                     <label class=" font-weight-bold" for="emp_name">Join Date</label>
                                     <input type="text" name="joindate" value="{{$rejectView->joindate}}" class="form-control id="" aria-describedby="" readonly>
                                     <br>
+                                    
+                                    {{-- leave type --}}
+                                    <label class=" font-weight-bold" for="">Leave Type</label>
+                                    <input type="text" value="{{$rejectView->ltype_req}}" class="form-control" id="" aria-describedby="" readonly>
+                                    <br>
+
+                                    {{-- applied no. of days--}}
+                                    <label class=" font-weight-bold" for="">Applied No. of Days</label> 
+                                    <input type="text" value="{{$rejectView->leave_days}}" id="output" class="form-control" readonly>
                                 </div>
 
                                 <div class="col-md-4">
@@ -55,6 +64,15 @@ LMS | Take Action
                                     <label class=" font-weight-bold" for="">Post</label>
                                     <input type="text" name="post" value="{{$rejectView->post}}" class="form-control id="" aria-describedby="" readonly>
                                     <br>
+
+                                    {{-- leave category --}}
+                                    <label class=" font-weight-bold" for="">Leave Category</label>
+                                    <input type="text" value="{{$rejectView->lcat_req}}" class="form-control" id="" aria-describedby="" readonly>
+                                    <br>
+
+                                    {{-- status --}}
+                                    <label class=" font-weight-bold" for="">Status</label> 
+                                    <input type="text" value="{{$rejectView->status}}" id="output" class="form-control font-weight-bold text-success " readonly>
                                 </div>
 
                                 <div class="col-md-4">
@@ -67,51 +85,16 @@ LMS | Take Action
                                     <label class=" font-weight-bold" for="emp_name">Marital Status</label>
                                     <input type="text" name="maristatus" value="{{$rejectView->maristatus}}" class="form-control" id="" aria-describedby="" readonly>
                                     <br>
-                                </div>
 
-                                {{-- leave type --}}
-                                <div class="col-md-4">
-                                    <label class=" font-weight-bold" for="">Leave Type</label>
-                                    <input type="text" value="{{$rejectView->ltype_req}}" class="form-control" id="" aria-describedby="" readonly>
-                                    <br>
-                                </div>
-
-                                {{-- leave category --}}
-                                <div class="col-md-4">
-                                    <label class=" font-weight-bold" for="">Leave Category</label>
-                                    <input type="text" value="{{$rejectView->lcat_req}}" class="form-control" id="" aria-describedby="" readonly>
-                                    <br>
-                                </div>
-
-                                {{-- start date section --}}
-                                <div class="col-md-4">
+                                    {{-- start date section --}}
                                     <label class=" font-weight-bold" for="startDate">Leave Period</label>
                                     <input type="text" value="From   {{$rejectView->startdate}}   To   {{$rejectView->enddate}}" class="form-control"  aria-describedby="" readonly>
                                     <br>
-                                </div>
-
-                                  {{-- applied no. of days--}}
-                                <div class="col-md-4">
-                                    <label class=" font-weight-bold" for="">Applied No. of Days</label> 
-                                    <input type="text" value="{{$rejectView->leave_days}}" id="output" class="form-control" readonly>
-                                </div>
-
-                                {{-- status --}}
-                                <div class="col-md-4">
-                                    <label class=" font-weight-bold" for="">Status</label> 
-                                    <input type="text" value="{{$rejectView->status}}" id="output" class="form-control font-weight-bold text-success " readonly>
-                                </div>
-
-                                <div  class="col-md-4" >
-                                    {{-- <label class=" font-weight-bold" for="">Admin Remarks</label>  --}}
+                                    
+                                    {{-- admin remarks --}}
+                                    <label class=" font-weight-bold" for="">Admin Remarks</label> 
                                     <input type="text" name="admin_remarks" id="" value="{{$rejectView->admin_remarks}}" class="form-control font-weight-bold text-secondary" readonly>
                                 </div>
-
-                                {{-- number of days--}}
-                                {{-- <div class="col-md-4">
-                                    <label class=" font-weight-bold" for="">Leave Days</label> 
-                                    <input type="text" name="" id="output" class="form-control" readonly>
-                                </div> --}}
                             </div>
                         </div>
                         <br>
