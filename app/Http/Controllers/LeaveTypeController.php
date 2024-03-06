@@ -11,6 +11,10 @@ class LeaveTypeController extends Controller
 
         $delete = Leavetype::findOrFail($leave_id);
         $delete->delete();
-        return redirect('/leavetype')->with('status','Leave Type Deleted Successfully.');
+        // return redirect('/leavetype')->with('status','Leave Type Deleted Successfully.');
+        return response()->json([
+            'status' => 200, 
+            'msg' => "Leave Type Deleted Successfully"
+        ],200);
     }
 }

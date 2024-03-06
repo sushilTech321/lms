@@ -5,16 +5,19 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -27,6 +30,9 @@
 
     {{-- fontawesome link --}}
     <script src="https://kit.fontawesome.com/ee90f4096b.js" crossorigin="anonymous"></script>
+
+    {{-- sweet alert  --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body class="">
@@ -106,8 +112,8 @@
                             <p>Leave History</p>
                         </a>
                     </li>
-                    {{-- <li class="{{ '#' == request()->path() ? 'active' : '' }}">
-                        <a href="#">
+                    {{-- <li class="{{ 'apitest' == request()->path() ? 'active' : '' }}">
+                        <a href="{{url('apitest')}}">
                             <i class="now-ui-icons ui-1_bell-53"></i>
                             <p>Notifications</p>
                         </a>
@@ -156,9 +162,9 @@
                             {{-- logout section --}}
                             <li class="nav-item dropdown">
                                 <div class="dropdown">
-                                    <a class="btn  text-uppercase   dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn  text-uppercase   dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="now-ui-icons users_single-02"></i> &nbsp; {{ Auth::user()->name }}
-                                    </a>
+                                    </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         
                                         {{-- change password --}}

@@ -32,6 +32,6 @@ class Leaverequest extends Model
         'applied_on',
         'status',
         'admin_remarks',
-        'user_id',
+        'users_id',
     ];
 }

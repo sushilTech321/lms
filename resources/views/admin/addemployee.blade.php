@@ -59,6 +59,7 @@ LMS | Dashboard
                             <tbody>
                                 @foreach($users as $row)
                                 <tr>
+                                    <input type="hidden" class="serdelete_val_id" value="{{$row->id}} ">
                                     <td> {{$row->id}} </td>
                                     <td> {{$row->name}} </td>
                                     <td> {{$row->post}} </td>
@@ -77,13 +78,16 @@ LMS | Dashboard
                                         </form>
 
                                         {{-- delete --}}
-                                        <form action="/register/{{$row->id}}" method="POST">
+                                        {{-- <form action="/register/{{$row->id}}" method="POST">
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
-                                            <button type="submit" class="btn">
+                                            <button type="submit" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash-can" title="Delete"></i>
                                             </button>
-                                        </form>
+                                        </form> --}}
+                                        <button type="button" class="btn btn-danger serviceDeletebtn">
+                                            <i class="fa-solid fa-trash-can" title="Delete"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -100,7 +104,52 @@ LMS | Dashboard
 @section('scripts')
 <script>
     $(document).ready( function () {
+        
         $('#mydataTable').DataTable();
+        
+        $('.serviceDeletebtn').click(function (e) { 
+            
+            e.preventDefault();
+            
+            var delete_id = $(this).closest("tr").find('.serdelete_val_id').val();
+            // alert(delete_id);
+            
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        var data = {
+                            "_token" :  $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        };
+
+                        $.ajax({
+                            type: "DELETE",
+                            url: "register/"+delete_id,
+                            data: data,
+                            // dataType: "dataType",
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                swal(response.msg, {
+                                    icon: "success",
+                                })
+                                .then((result) =>{
+                                    location.reload();
+                                });
+                            }
+                        });
+                    }
+                });
+        });
     });
+
 </script>
 @endsection

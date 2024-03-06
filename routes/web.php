@@ -28,6 +28,7 @@ use App\Http\Controllers\AdminPasswordChangeController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
+
     // register employee
     Route::get('/regemp', function () {
         return view('admin.register_emp');
@@ -60,6 +62,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/addleave', function () {
         return view('admin.addleave');
     });
+    
     // leave type 
     Route::get('leavetype',[LeaveController::class,'leavetype']);
     Route:: post('leavestore',[LeaveController::class,'leavestore']);
@@ -127,4 +130,3 @@ Route::group(['middleware' => ['auth','admin']], function () {
     // emp change password
         Route::get('/change_passwords',[EmpChangePasswdController::class,'changePasswd']);
         Route::put('/update_passwords',[EmpChangePasswdController::class,'updatePasswd']);
-

@@ -50,10 +50,9 @@ class LeavereqController extends Controller
           'applied_on'  => $request->applied_on,
           'status' => 'pending',
           'admin_remarks' => 'Admin remarks here',
-          'user_id' => $request->user_id,
+          'user_id' => $request->users_id,
         );
         $insert = DB::table('leaverequests')->insert($data);
         return redirect('leaveform')->with('status','Request Submitted Successfully.');
-
       }
 }

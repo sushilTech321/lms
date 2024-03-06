@@ -52,6 +52,7 @@ LMS | Dashboard
                             <tbody>
                                 @foreach ($rejectLeave as $item)   
                                     <tr>
+                                        <input type="hidden" class="penleavedel_val_id" value="{{$item->id}} ">
                                         <td> {{$item->id}} </td>
                                         <td> {{$item->name_req}} </td>
                                         <td> {{$item->startdate}} </td>
@@ -59,8 +60,8 @@ LMS | Dashboard
                                         <td> {{$item->leave_days}} </td>
                                         <td> {{$item->applied_on}} </td>
                                         <td> <span class="badge badge-pill badge-success"> {{$item->status}}</span> </td>
-                                        <td>
-                                            <div class="dropdown">
+                                        <td class="d-flex justify-content-center">
+                                            {{-- <div class="dropdown">
                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                                     <i class="fa-solid fa-ellipsis fa-2xl" ></i>
                                                </a>
@@ -77,8 +78,17 @@ LMS | Dashboard
                                                        <button type="submit" class="dropdown-item"><i class="fa-solid fa-trash fa-lg"></i> Delete</button>
                                                    </form>
                                                </div>
-                                           </div>
-                                       </td>
+                                           </div> --}}
+                                           <form action="/reject_view/{{$item->id}}">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary" ><i title="View" class="fa-regular fa-eye fa-lg"></i></button>
+                                            </form>
+
+                                            {{-- delete --}}
+                                            <button type="button" class="btn btn-danger penleaveDelbtn">
+                                                <i class="fa-solid fa-trash-can" title="Delete"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -95,6 +105,49 @@ LMS | Dashboard
 <script>
     $(document).ready( function () {
         $('#mydataTable').DataTable();
+        
+        $('.penleaveDelbtn').click(function (e) { 
+            
+            e.preventDefault();
+            
+            var delete_id = $(this).closest("tr").find('.penleavedel_val_id').val();
+            // alert(delete_id);
+            
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        var data = {
+                            "_token" :  $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        };
+
+                        $.ajax({
+                            type: "DELETE",
+                            url: "rejected_leave/"+delete_id,
+                            data: data,
+                            // dataType: "dataType",
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                swal(response.msg, {
+                                    icon: "success",
+                                })
+                                .then((result) =>{
+                                    location.reload();
+                                });
+                            }
+                        });
+                    }
+                });
         });
+    });
 </script>
 @endsection

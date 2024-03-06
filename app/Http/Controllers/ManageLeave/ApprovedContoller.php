@@ -16,6 +16,10 @@ class ApprovedContoller extends Controller
     public function apvleaveDelete($id){
         $approvedDelete = Leaverequest::findOrFail($id);
         $approvedDelete->delete();
-        return redirect('/approved_leave')->with('status','Approved Leave Has Been Deleted.');
+        // return redirect('/approved_leave')->with('status','Approved Leave Has Been Deleted.');
+        return response()->json([
+            'status' => 200,
+            'msg' => "Approved Leave Has Been Deleted."
+        ],200);
     }
 }

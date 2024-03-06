@@ -98,7 +98,7 @@ LMS | Register Employee
 
                             {{-- emp email and password --}}
                             <div class="pl-4  mb-1">
-                                <small class="text-danger">Set employee's email and password.</small>
+                                <small class="text-secondary">Set employee's email and password.</small>
                             </div>
 
                             {{--emp email --}}
@@ -130,7 +130,9 @@ LMS | Register Employee
 
                             {{-- register button --}}
                             <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-round btn-primary font-weight-normal">Register</button>
+                                <button type="submit" class="btn btn-round btn-secondary font-weight-normal">Register</button> 
+                                    &nbsp;&nbsp;
+                                <a  href="/register"  class="btn btn-round btn-danger font-weight-normal">Cancle </a>
                             </div>
                         </form>
                     </div>

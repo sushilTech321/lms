@@ -16,6 +16,10 @@ class RejectedLeaveController extends Controller
     public function declineDelete($id){
         $rejectDelete = Leaverequest::findOrFail($id);
         $rejectDelete->delete();
-        return redirect('/rejected_leave')->with('status','Data Has Been Deleted.');
+        // return redirect('/rejected_leave')->with('status','Data Has Been Deleted.');
+        return response()->json([
+            'status' => 200,
+            'msg' => "Data Has Been Deleted."
+        ],200);
     }
 }

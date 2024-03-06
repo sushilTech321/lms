@@ -57,6 +57,8 @@ LMS | Dashboard
                             <tbody>
                                @foreach ($leavetype as $row)
                                     <tr>
+                                        <input type="hidden" class="leavedelete_val_id" value="{{$row->leave_id}} ">
+                                        
                                         <td class="text-center"> {{$row->leave_id}} </td>
 
                                         <td  class="text-center"> {{$row->leave_type}} </td>
@@ -74,12 +76,16 @@ LMS | Dashboard
                                                 <button type="submit" class="btn"> <i class="fa-regular fa-pen-to-square fa-xl" style="color: #d6dce6;" title="Edit"></i></button>
                                             </form>
 
-                                            <form action="/leavetypedel/{{$row->leave_id}}" method="POST">
+                                            {{-- delete leave type --}}
+                                            {{-- <form action="/leavetypedel/{{$row->leave_id}}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{method_field('DELETE')}}
                                                 <input type="hidden" name="id" value=" {{$row->leave_id}}">
                                                 <button type="submit" class="btn btn-danger"><i class="fa-solid fa-delete-left fa-xl" style="color: #f0f4f9;" title="Delete"></i></button>
-                                            </form>
+                                            </form> --}}
+                                            <button type="button" class="btn btn-danger leaveDelbtn">
+                                                <i class="fa-solid fa-trash-can" title="Delete"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                @endforeach
@@ -97,6 +103,49 @@ LMS | Dashboard
 <script>
     $(document).ready( function () {
         $('#mydataTable').DataTable();
+        
+        $('.leaveDelbtn').click(function (e) { 
+            
+            e.preventDefault();
+            
+            var delete_id = $(this).closest("tr").find('.leavedelete_val_id').val();
+            // alert(delete_id);
+            
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        var data = {
+                            "_token" :  $('input[name="csrf-token"]').val(),
+                            "id": delete_id,
+                        };
+
+                        $.ajax({
+                            type: "DELETE",
+                            url: "leavetypedel/"+delete_id,
+                            data: data,
+                            // dataType: "dataType",
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                swal(response.msg, {
+                                    icon: "success",
+                                })
+                                .then((result) =>{
+                                    location.reload();
+                                });
+                            }
+                        });
+                    }
+                });
         });
+    });
 </script>
 @endsection

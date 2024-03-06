@@ -93,7 +93,7 @@
 
                                         {{-- Users id --}}
                                         <label class="d-flex justify-content-center font-weight-bold" for="">User Id</label> 
-                                        <input type="text" name="user_id"  value="{{$employeeData->id}}" class="form-control font-weight-bold" readonly>
+                                        <input type="text" name="users_id"  value="{{$employeeData->id}}" class="form-control font-weight-bold" readonly>
                                     </div>
 
                                     <div class="col-md-4">

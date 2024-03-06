@@ -28,7 +28,7 @@ return new class extends Migration
             $table->date('applied_on');
             $table->string('status');
             $table->string('admin_remarks');
-            $table->integer('user_id');
+            $table->integer('users_id')->nullable();
             $table->timestamps();
         });
     }

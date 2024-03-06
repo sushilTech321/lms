@@ -66,7 +66,7 @@ LMS | Employee Edit
 
                                     {{-- employee marital status --}}
                                     <label class=" font-weight-bold" for="emp_name">Marital Status</label>
-                                    <input type="text" name="maristatus" value="{{$empEdit->maristatus}}" class="form-control" id="" aria-describedby="">
+                                    <input type="text" name="maristatus" value="{{$empEdit->maristatus}}" class="form-control" id="" aria-describedby="" readonly>
                                     <br>
                                 </div>
                             </div>

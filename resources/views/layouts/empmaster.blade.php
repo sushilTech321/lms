@@ -32,7 +32,7 @@
 <body class="">
     <div class="wrapper ">
         {{-- sidebar --}}
-        <div class="sidebar" data-color="orange">
+        <div class="sidebar" data-color="green">
             <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
             <div class="logo">
                 <a href="{{url('/dashboard')}}" class="simple-text logo-mini">
@@ -101,9 +101,9 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <div class="dropdown">
-                                    <a class="btn mr-4 text-uppercase dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn mr-4 text-uppercase dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="now-ui-icons users_single-02"></i> &nbsp; {{ Auth::user()->name }}
-                                    </a>
+                                    </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item text-dark" href="#">
                                             <i class="fa-regular fa-circle-user fa-lg"></i>My Profile 

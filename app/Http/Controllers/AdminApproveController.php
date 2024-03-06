@@ -16,6 +16,10 @@ class AdminApproveController extends Controller
     public function delReqst($id){
         $delete = Leaverequest::findOrFail($id);
         $delete->delete();
-        return redirect('/admin_approve')->with('status','Leave Request Deleted Successfully.');
+        // return redirect('/admin_approve')->with('status','Leave Request Deleted Successfully.');
+        return response()->json([
+            'status' => 200, 
+            'msg' => "Leave Request Deleted Successfully."
+        ],200);
     }
 }

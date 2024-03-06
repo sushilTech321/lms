@@ -40,6 +40,10 @@ class UserController extends Controller
     public function delete($id){
         $delete = User:: findOrFail($id);
         $delete->delete();
-        return redirect('/register')->with('status','Employee deleted successfully.');
+        // return redirect('/register')->with('status','Employee deleted successfully.');
+        return response()->json([
+            'status' => 200,
+            'msg' => "Employee deleted successfully!",
+        ],200);
     }   
 }
